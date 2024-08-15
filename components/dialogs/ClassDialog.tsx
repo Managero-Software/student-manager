@@ -38,6 +38,19 @@ import { redirect } from "next/navigation";
 
 const ClassDialog = ({ ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const form = useForm<z.infer<typeof ClassDialogValidation>>({
+    resolver: zodResolver(ClassDialogValidation),
+    defaultValues: {
+      className: "",
+      classType: "",
+      instructor: "",
+      roomNumber: "",
+      startTime: new Date(),
+      endTime: new Date(new Date().setHours(new Date().getHours() + 1)),
+      dayOfWeek: "Monday",
+      frequency: "Weekly",
+    },
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -63,21 +76,7 @@ const ClassDialog = ({ ...props }) => {
 
       fetchClassData();
     }
-  }, [isOpen, props.classId]);
-
-  const form = useForm<z.infer<typeof ClassDialogValidation>>({
-    resolver: zodResolver(ClassDialogValidation),
-    defaultValues: {
-      className: "",
-      classType: "",
-      instructor: "",
-      roomNumber: "",
-      startTime: new Date(),
-      endTime: new Date(new Date().setHours(new Date().getHours() + 1)),
-      dayOfWeek: "Monday",
-      frequency: "Weekly",
-    },
-  });
+  }, [form, isOpen, props.classId]);
 
   const onSubmit = async (values: z.infer<typeof ClassDialogValidation>) => {
     try {

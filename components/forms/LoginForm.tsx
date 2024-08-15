@@ -33,7 +33,7 @@ const LoginForm = () => {
       };
 
       if (await loginUser(user)) {
-        redirect(`/dashboard`);
+        redirect("/dashboard");
       }
     } catch (error) {
       console.log(error);
@@ -72,7 +72,7 @@ const LoginForm = () => {
         <SubmitButton isLoading={isLoading}>Login</SubmitButton>
 
         <div className="text-14-regular flex">
-          <p className="text-dark-600 mr-2">Don't have an account?</p>
+          <p className="text-dark-600 mr-2">Don&apos;t have an account?</p>
           <Link href="/register" className="text-green-500">
             Register
           </Link>
