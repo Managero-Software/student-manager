@@ -24,13 +24,13 @@ const Dashboard = async () => {
           <div className="grid content-center">
             <h1 className="header font-semibold md:text-2xl">Dashboard</h1>
           </div>
-          <div className="grid grid-flow-row lg:grid-cols-3 lg:grid-rows-2 gap-1">
+          <div className="grid grid-flow-row lg:grid-cols-2 lg:grid-rows-2 gap-1">
             {classesData ? (
               <div className="col-span-2 row-span-2 gap-1 grid grid-rows-[50px_1fr] h-full rounded-lg border border-dashed shadow-sm">
                 <div className="grid justify-items-end m-2">
                   <ClassDialog />
                 </div>
-                <div className="overflow-auto grid auto-rows-min gap-1">
+                <div className="overflow-auto grid auto-rows-min gap-1 m-2">
                   <ClassSchedule data={classesData} />
                 </div>
               </div>
@@ -45,7 +45,7 @@ const Dashboard = async () => {
               </div>
             )}
 
-            <div className="col-span-2 lg:col-span-1 flex flex-grow flex-col gap-1 text-center items-center justify-center rounded-lg border border-dashed shadow-sm">
+            {/* <div className="col-span-2 lg:col-span-1 flex flex-grow flex-col gap-1 text-center items-center justify-center rounded-lg border border-dashed shadow-sm">
               <h3 className="text-2xl font-bold tracking-tight">
                 You have no exams scheduled.
               </h3>
@@ -59,7 +59,7 @@ const Dashboard = async () => {
               <p className="text-sm text-muted-foreground">
                 Your missed classes and exams will be shown here.
               </p>
-            </div>
+            </div> */}
           </div>
         </main>
       </div>

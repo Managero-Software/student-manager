@@ -31,21 +31,9 @@ const Sidebar = () => {
               <Home className="h-4 w-4" />
               Dashboard
             </Link>
-            <Link href="#" className="sidebar-menu-item">
+            <Link href="/profile" className="sidebar-menu-item">
               <ShoppingCart className="h-4 w-4" />
-              Orders
-            </Link>
-            <Link href="#" className="sidebar-menu-item">
-              <Package className="h-4 w-4" />
-              Products{" "}
-            </Link>
-            <Link href="#" className="sidebar-menu-item">
-              <Users className="h-4 w-4" />
-              Customers
-            </Link>
-            <Link href="#" className="sidebar-menu-item">
-              <LineChart className="h-4 w-4" />
-              Analytics
+              Profile
             </Link>
           </nav>
         </div>

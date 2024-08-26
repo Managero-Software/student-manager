@@ -34,10 +34,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { parseTimeStringToDate } from "@/lib/utils";
-import { redirect } from "next/navigation";
 
 const ClassDialog = ({ ...props }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const form = useForm<z.infer<typeof ClassDialogValidation>>({
     resolver: zodResolver(ClassDialogValidation),
     defaultValues: {
@@ -47,7 +47,7 @@ const ClassDialog = ({ ...props }) => {
       roomNumber: "",
       startTime: new Date(),
       endTime: new Date(new Date().setHours(new Date().getHours() + 1)),
-      dayOfWeek: "Monday",
+      dayOfWeek: "1",
       frequency: "Weekly",
     },
   });
@@ -106,9 +106,9 @@ const ClassDialog = ({ ...props }) => {
       } else {
         await createClass(classData);
       }
-
       setIsOpen(false);
       form.reset();
+      window.location.reload();
     } catch (error) {
       console.error("Failed to save data:", error);
     }
@@ -213,8 +213,8 @@ const ClassDialog = ({ ...props }) => {
                 name="dayOfWeek"
                 placeholder="Day Of Week"
               >
-                {DayOfWeekOptions.map((day) => (
-                  <SelectItem key={day} value={day}>
+                {DayOfWeekOptions.map((day, index) => (
+                  <SelectItem key={index} value={index.toString()}>
                     <div className="flex cursor-pointer items-center gap-2">
                       <p>{day}</p>
                     </div>
@@ -242,11 +242,7 @@ const ClassDialog = ({ ...props }) => {
                 <Button className="shad-gray-btn">Close</Button>
               </DialogClose>
 
-              <Button
-                type="submit"
-                // onClick={onSubmit}
-                className="shad-primary-btn"
-              >
+              <Button type="submit" className="shad-primary-btn">
                 Save changes
               </Button>
             </DialogFooter>

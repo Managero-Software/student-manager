@@ -33,7 +33,7 @@ export const ClassDialogValidation = z.object({
   instructor: z.string().max(100, "Cannot exceed 100 characters."),
   roomNumber: z.string().max(50, "Cannot exeed 50 characters"),
   classType: z.string().max(100, "Cannot exceed 100 characters."),
-  dayOfWeek: z.enum(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]),
+  dayOfWeek: z.enum(["1", "2", "3", "4", "5"]),
   startTime: z.coerce.date({ message: "The format should be hh:mm" }),
   endTime: z.coerce.date({ message: "The format should be hh:mm" }),
   frequency: z.enum(["Weekly", "Bi-Weekly(Odd)", "Bi-Weekly(Even)"]),

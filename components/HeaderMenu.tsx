@@ -50,25 +50,13 @@ const HeaderMenu = () => {
               <Package2 className="h-6 w-6" />
               <span className="sr-only">Student TimeMaster</span>
             </Link>
-            <Link href="#" className="header-menu-item">
+            <Link href="/dashboard" className="header-menu-item">
               <Home className="h-5 w-5" />
               Dashboard
             </Link>
-            <Link href="#" className="header-menu-item">
+            <Link href="/profile" className="header-menu-item">
               <ShoppingCart className="h-5 w-5" />
-              Orders
-            </Link>
-            <Link href="#" className="header-menu-item">
-              <Package className="h-5 w-5" />
-              Products
-            </Link>
-            <Link href="#" className="header-menu-item">
-              <Users className="h-5 w-5" />
-              Customers
-            </Link>
-            <Link href="#" className="header-menu-item">
-              <LineChart className="h-5 w-5" />
-              Analytics
+              Profile
             </Link>
           </nav>
         </SheetContent>

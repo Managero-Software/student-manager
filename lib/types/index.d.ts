@@ -1,13 +1,8 @@
-declare type DayOfWeek =
-  | "Monday"
-  | "Tuesday"
-  | "Wednesday"
-  | "Thursday"
-  | "Friday";
+declare type DayOfWeek = "1" | "2" | "3" | "4" | "5";
 
 declare type Frequency = "Weekly" | "Bi-Weekly(Odd)" | "Bi-Weekly(Even)";
 
-declare interface ClassParams {
+declare interface CreateClass {
   userId: string;
   className: string;
   classType?: string;
@@ -17,4 +12,8 @@ declare interface ClassParams {
   endTime: string;
   dayOfWeek: DayOfWeek;
   frequency: Frequency;
+}
+
+declare interface ClassInterface extends CreateClass {
+  classId: string;
 }

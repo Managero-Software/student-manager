@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/table";
 import DeleteClassDialog from "./dialogs/DeleteClassDialog";
 import ClassDialog from "./dialogs/ClassDialog";
+import { DayOfWeekOptions } from "@/lib/constants";
 
 export const columns: ColumnDef<Class>[] = [
   {
@@ -34,6 +35,14 @@ export const columns: ColumnDef<Class>[] = [
   {
     accessorKey: "instructor",
     header: "Instructor",
+  },
+  {
+    accessorKey: "dayOfWeek",
+    header: "Day of Week",
+    cell: ({ getValue }) => {
+      const dayOfWeek = getValue<number>();
+      return DayOfWeekOptions[dayOfWeek];
+    },
   },
   {
     accessorKey: "startTime",

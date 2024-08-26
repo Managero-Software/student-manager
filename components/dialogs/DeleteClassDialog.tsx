@@ -12,9 +12,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { deleteClass } from "@/lib/actions/class.actions";
 
 const DeleteClassDialog = ({ classId }: { classId: string }) => {
-  console.log("delete class", classId);
+  const deleteClassItem: React.MouseEventHandler<HTMLButtonElement> = async (
+    event
+  ) => {
+    console.log(event);
+    await deleteClass(classId);
+    window.location.reload();
+  };
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -31,13 +38,19 @@ const DeleteClassDialog = ({ classId }: { classId: string }) => {
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            This action cannot be undone. This will permanently delete the
+            class.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogCancel asChild>
+            <Button className="shad-gray-btn">Cancel</Button>
+          </AlertDialogCancel>
+          <AlertDialogAction asChild>
+            <Button className="shad-primary-btn" onClick={deleteClassItem}>
+              Delete
+            </Button>
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

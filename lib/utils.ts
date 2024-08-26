@@ -20,3 +20,13 @@ export function parseTimeStringToDate(timeString: string) {
 
   return now;
 }
+
+export const getDayOfWeek = (date: Date): string => {
+  let dayOfWeek = date.getDay();
+
+  if (dayOfWeek === 0 || dayOfWeek === 6) {
+    return "1";
+  }
+
+  return (dayOfWeek - 1).toString();
+};
