@@ -117,14 +117,12 @@ const ClassDialog = ({ ...props }) => {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         {props.classId ? (
-          <Button>
-            <FontAwesomeIcon
-              height={24}
-              width={24}
-              className="hover:text-green-500"
-              icon={faPen}
-            />
-          </Button>
+          <FontAwesomeIcon
+            height={24}
+            width={24}
+            className="hover:text-green-500"
+            icon={faPen}
+          />
         ) : (
           <Button className="shad-primary-btn">Add Class</Button>
         )}

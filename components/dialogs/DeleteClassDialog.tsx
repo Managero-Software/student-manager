@@ -25,14 +25,12 @@ const DeleteClassDialog = ({ classId }: { classId: string }) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button>
-          <FontAwesomeIcon
-            height={24}
-            width={24}
-            className="hover:text-red-700"
-            icon={faTrash}
-          />
-        </Button>
+        <FontAwesomeIcon
+          height={24}
+          width={24}
+          className="hover:text-red-700"
+          icon={faTrash}
+        />
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

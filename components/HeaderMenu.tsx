@@ -2,16 +2,15 @@
 import React from "react";
 import Link from "next/link";
 import {
+  CircleHelp,
   CircleUser,
   Home,
-  LineChart,
+  LogOut,
   Menu,
-  Package,
   Package2,
+  Settings,
   ShoppingCart,
-  Users,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import {
@@ -44,7 +43,7 @@ const HeaderMenu = () => {
         <SheetContent side="left" className="flex flex-col">
           <nav className="grid gap-2 text-lg font-medium">
             <Link
-              href="#"
+              href="/dashboard"
               className="flex items-center gap-2 text-lg font-semibold"
             >
               <Package2 className="h-6 w-6" />
@@ -54,32 +53,17 @@ const HeaderMenu = () => {
               <Home className="h-5 w-5" />
               Dashboard
             </Link>
-            <Link href="/profile" className="header-menu-item">
+            <Link href="/about" className="header-menu-item">
               <ShoppingCart className="h-5 w-5" />
-              Profile
+              About
             </Link>
+            <div className="header-menu-item cursor-pointer" onClick={logOut}>
+              <LogOut className="h-5 w-5" />
+              Logout
+            </div>
           </nav>
         </SheetContent>
       </Sheet>
-
-      <div className="flex flex-1 flex-row-reverse">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="secondary" size="icon" className="rounded-full">
-              <CircleUser className="h-5 w-5" />
-              <span className="sr-only">Toggle user menu</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Support</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={logOut}>Logout</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
     </>
   );
 };

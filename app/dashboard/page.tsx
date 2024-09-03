@@ -17,7 +17,7 @@ const Dashboard = async () => {
     <div className="grid grid-cols-1 md:grid-cols-[250px_1fr] min-h-screen w-full ">
       <Sidebar />
       <div className="grid grid-rows-[60px_1fr]">
-        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+        <header className="flex h-14 items-center gap-4 border-b md:border-b-0 bg-muted/40 px-4 lg:h-[60px] lg:px-6">
           <HeaderMenu />
         </header>
         <main className="grid grid-rows-[10px_1fr] gap-4 p-4 lg:gap-6 lg:p-6">

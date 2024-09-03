@@ -38,3 +38,7 @@ export const ClassDialogValidation = z.object({
   endTime: z.coerce.date({ message: "The format should be hh:mm" }),
   frequency: z.enum(["Weekly", "Bi-Weekly(Odd)", "Bi-Weekly(Even)"]),
 });
+
+export const ProfileFormValidation = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters."),
+});

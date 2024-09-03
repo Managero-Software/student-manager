@@ -1,18 +1,25 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import {
-  Bell,
+  CircleHelp,
   Home,
-  LineChart,
-  Package,
+  LogOut,
   Package2,
+  Settings,
   ShoppingCart,
-  Users,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
+import { logoutUser } from "@/lib/actions/user.actions";
 
 const Sidebar = () => {
+  const router = useRouter();
+  const logOut = async () => {
+    const userExists = await logoutUser();
+    if (userExists) {
+      router.push("/");
+    }
+  };
   return (
     <div className="hidden border-r bg-muted/40 md:block">
       <div className="flex h-full max-h-screen flex-col gap-2">
@@ -31,10 +38,15 @@ const Sidebar = () => {
               <Home className="h-4 w-4" />
               Dashboard
             </Link>
-            <Link href="/profile" className="sidebar-menu-item">
+            <Link href="/about" className="sidebar-menu-item">
               <ShoppingCart className="h-4 w-4" />
-              Profile
+              About
             </Link>
+
+            <div className="sidebar-menu-item cursor-pointer" onClick={logOut}>
+              <LogOut className="h-4 w-4" />
+              Logout
+            </div>
           </nav>
         </div>
       </div>

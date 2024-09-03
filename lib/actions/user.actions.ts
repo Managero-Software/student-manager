@@ -58,3 +58,18 @@ export async function getLoggedInUser() {
     return null;
   }
 }
+
+export async function updateUser({ name }: { name?: string }) {
+  try {
+    const { account } = await createSessionClient();
+
+    if (name) {
+      const user = await account.updateName(name);
+      return user;
+    }
+    const user = await account.get();
+    return user;
+  } catch (error) {
+    return null;
+  }
+}

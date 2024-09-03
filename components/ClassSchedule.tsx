@@ -55,15 +55,13 @@ export const columns: ColumnDef<Class>[] = [
   {
     accessorKey: "actions",
     header: "",
+    size: 200,
+    minSize: 200,
     cell: ({ row }) => {
       return (
-        <div className="grid grid-cols-2 gap-1">
-          <div>
-            <DeleteClassDialog classId={row.original.$id} />
-          </div>
-          <div>
-            <ClassDialog classId={row.original.$id} />
-          </div>
+        <div className="grid grid-cols-2 gap-3">
+          <DeleteClassDialog classId={row.original.$id} />
+          <ClassDialog classId={row.original.$id} />
         </div>
       );
     },
